@@ -41,7 +41,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Hero = ({ executeScroll }) => {
 
-  const [width, setWidth] = useState<number>(window.screen.width);
+  const [width, setWidth] = useState<number>(typeof window !== "undefined" ? window.screen.width : 0);
 
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
