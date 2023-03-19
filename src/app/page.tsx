@@ -39,9 +39,10 @@ const images = [
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 const Hero = ({ executeScroll }) => {
 
-  const [width, setWidth] = useState<number>(typeof window !== "undefined" ? window.screen.width : 0);
+  const [width, setWidth] = useState<number>(0);
 
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
@@ -49,6 +50,7 @@ const Hero = ({ executeScroll }) => {
 
 
   useEffect(() => {
+    setWidth(window.innerWidth)
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);
