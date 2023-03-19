@@ -1,0 +1,131 @@
+@import '~video-react/styles/scss/video-react';
+
+.hero {
+
+  @media only screen and (max-width: 600px) {
+    display: inline-grid;
+  }
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: #223243;
+  min-height: 100vh;
+
+}
+
+.heroText {
+
+  @media only screen and (max-width: 600px) {
+    margin: 20px 0 0 20px;
+    height: 20vh;
+  }
+
+  width: 38%;
+  margin: 40px 0 0 40px;
+  height: 100%;
+  color: white;
+}
+
+.heroContent {
+  margin: 30% 0 0 0;
+
+  >h1 {
+
+    @media only screen and (max-width: 600px) {
+      margin: 80px 0 40px 0;
+      width: 280px;
+    }
+
+    margin: 0 0 5% 0;
+    font-family: 'Inter',
+    sans-serif;
+    font-weight: 800;
+    width: 380px
+  }
+}
+
+.heroImage {
+  >img {
+    display: flex;
+    height: 100%;
+
+    @media all and (max-width: 600px) and (orientation:landscape) {
+      height: 200px;
+    }
+  }
+}
+
+.video {
+  >div {
+    
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  margin-bottom:10%;
+}
+
+.footer {
+  width: 100%;
+  height: 420px;
+  background-color: #223243;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    align-items: left;
+  }
+}
+
+.footerContent {
+  margin: 0 auto;
+  color: white;
+  line-height: 2;
+  text-align: center;
+
+  @media only screen and (max-width: 600px) {
+    text-align: left;
+  }
+
+  >p>a {
+    text-decoration: underline;
+  }
+}
+
+.footerRights {
+  font-size: 12px;
+}
+
+.button {
+
+  @media only screen and (max-width: 600px) {
+    width: 200px;
+  }
+
+  width: 280px;
+  height: 48px;
+  background-color: #59DFF2;
+  color: white;
+  border: none;
+  transition: 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(115%);
+    transition: 0.5s;
+  }
+}
+
+.listText {
+  font-family: 'Inter', sans-serif;
+  margin: 10% 0 10% 0;
+  text-align: center;
+  line-height: 2.2;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+    margin: 20% 20px 20% 20px;
+    text-align: left;
+  }
+}
