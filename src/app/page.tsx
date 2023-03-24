@@ -27,13 +27,13 @@ export default function Home() {
 
 const images = [
   {
-    url: 'images/1.png'
+    url: 'images/1.jpg'
   },
   {
-    url: 'images/2.png'
+    url: 'images/2.jpg'
   },
   {
-    url: 'images/3.png'
+    url: 'images/3.jpg'
   }
 ]
 
@@ -104,21 +104,32 @@ const List = () => {
 }
 
 const Video = () => {
+
+  const videoUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
+
   return (
     <div className={styles.video}>
-      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <ReactPlayer url={videoUrl} />
     </div>
   )
 
 }
 
 const Footer = ({ refScroll }) => {
+
+  const courseUrl = "https://www.udemy.com/share/108lMy3@m_Q2hNMmQP-4qugU0CGK6ziiQzostr2utUh2vZ9ip4kSIigwR9A5pU9oJ9hCiBzn/";
+
+  const openInNewTab = (url) => {
+    window.open(url, '_blank', 'noreferrer');
+  };
+
+
   return (
     <div ref={refScroll} className={styles.footer}>
       <div className={styles.footerContent}>
-        <h2>7h 35 min duration</h2>
-        <h3>29,99 $</h3>
-        <Button onClick={() => { }} text={"Buy now!"} /><br />
+        <h2>9h 55 min duration</h2>
+        <h3>19,99 $</h3>
+        <Button onClick={() => openInNewTab(courseUrl)} text={"Buy now!"} /><br />
         <p>or <a href="mailto:piotrzak77@gmail.com">convince me</a> to get course free</p>
         <p className={styles.footerRights}>© All right reserved. 2023</p>
       </div>
