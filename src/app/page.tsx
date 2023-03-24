@@ -13,12 +13,29 @@ export default function Home() {
   const myRef = useRef(null)
   const executeScroll = () => myRef.current.scrollIntoView({ behavior: 'smooth' });
 
+  const [width, setWidth] = useState<number>(0);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
+
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+  const isMobile = width <= 768;
+
   return (
     <main className={styles.main}>
       <div className={inter.className}>
-        <Hero executeScroll={executeScroll} />
+        <Hero executeScroll={executeScroll} isMobile={isMobile} />
         <List />
-        <Video />
+        <Video isMobile={isMobile} />
         <Footer refScroll={myRef} />
       </div>
     </main>
@@ -40,24 +57,7 @@ const images = [
 const inter = Inter({ subsets: ['latin'] })
 
 
-const Hero = ({ executeScroll }) => {
-
-  const [width, setWidth] = useState<number>(0);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-
-
-  useEffect(() => {
-    setWidth(window.innerWidth)
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    }
-  }, []);
-
-  const isMobile = width <= 768;
+const Hero = ({ executeScroll, isMobile }) => {
 
   return (
     <div className={inter.className}>
@@ -103,13 +103,17 @@ const List = () => {
   )
 }
 
-const Video = () => {
+const Video = ({ isMobile }) => {
 
   const videoUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
 
   return (
     <div className={styles.video}>
-      <ReactPlayer url={videoUrl} />
+      <ReactPlayer width={isMobile ? '100%' : '640px'} url={videoUrl} config={{
+        youtube: {
+          playerVars: { showinfo: 0 }
+        }
+      }} />
     </div>
   )
 
@@ -119,7 +123,7 @@ const Footer = ({ refScroll }) => {
 
   const courseUrl = "https://www.udemy.com/share/108lMy3@m_Q2hNMmQP-4qugU0CGK6ziiQzostr2utUh2vZ9ip4kSIigwR9A5pU9oJ9hCiBzn/";
 
-  const openInNewTab = (url) => {
+  const openInNewTab = (url: string | URL) => {
     window.open(url, '_blank', 'noreferrer');
   };
 
