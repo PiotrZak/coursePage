@@ -2,6 +2,18 @@
 
 $background-color: #0490E6;
 $cta-color: #FD90C3;
+$text-color: #575e61;
+
+.main {
+  p {
+    color: $text-color;
+  }
+
+  a {
+    color: $cta-color;
+
+  }
+}
 
 .hero {
 
@@ -41,7 +53,8 @@ $cta-color: #FD90C3;
     }
 
     margin: 0 0 5% 0;
-    font-family: 'Inter',sans-serif;
+    font-family: 'Inter',
+    sans-serif;
     font-weight: 800;
     width: 420px
   }
@@ -60,7 +73,7 @@ $cta-color: #FD90C3;
 
 .video {
   >div {
-    
+
     margin: 0 auto;
     width: 100%;
   }
@@ -85,7 +98,7 @@ $cta-color: #FD90C3;
   color: white;
   line-height: 2;
   text-align: center;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media only screen and (max-width: 600px) {
     text-align: left;
@@ -130,5 +143,30 @@ $cta-color: #FD90C3;
     font-size: 14px;
     margin: 20% 20px 20% 20px;
     text-align: left;
+  }
+}
+
+.similarProducts {
+  margin: 0 auto;
+  padding:0px 0px 40px 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  >h2 {
+    padding:0 0 40px 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 20px 0 20px;
+  }
+
+  >img {
+    padding:0 0 40px 0;
+    width: 375px;
+    height: 375px;
+    margin: 0 auto;
   }
 }

@@ -3,9 +3,18 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import SimpleImageSlider from "react-simple-image-slider";
 import Logo from './image/logo.svg'
+
+import DotnetCourseHero from '../../public/images/SimilarProducts/1.jpg';
+
 import styles from './page.module.scss'
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic'
+
+
+const udemyUrl = "https://www.udemy.com/course/kubernetes-quest/?referralCode=8A5E4E3F8B2B2B2B2B2B";
+const youtubeUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
+const dotnetCourseUrl = "https://course-page-mu.vercel.app/";
+
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export default function Home() {
@@ -36,6 +45,7 @@ export default function Home() {
         <Hero executeScroll={executeScroll} isMobile={isMobile} />
         <List />
         <Video isMobile={isMobile} />
+        <SimilarProducts />
         <Footer refScroll={myRef} />
       </div>
     </main>
@@ -60,7 +70,7 @@ const Hero = ({ executeScroll, isMobile }) => {
           <Image src={Logo} alt={''} />
           <div className={styles.heroContent}>
             <h1>
-              Kubernetes Quest<br/>
+              Kubernetes Quest<br />
               Next-Level ML Engineering </h1>
             <Button onClick={executeScroll} text={"Buy course now"} />
           </div>
@@ -100,11 +110,9 @@ const List = () => {
 
 const Video = ({ isMobile }) => {
 
-  const videoUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
-
   return (
     <div className={styles.video}>
-      <ReactPlayer width={isMobile ? '100%' : '640px'} url={videoUrl} config={{
+      <ReactPlayer width={isMobile ? '100%' : '640px'} url={youtubeUrl} config={{
         youtube: {
           playerVars: { showinfo: 0 }
         }
@@ -114,21 +122,34 @@ const Video = ({ isMobile }) => {
 
 }
 
-const Footer = ({ refScroll }) => {
+const SimilarProducts = () => {
 
-  const courseUrl = "https://www.udemy.com/share/108lMy3@m_Q2hNMmQP-4qugU0CGK6ziiQzostr2utUh2vZ9ip4kSIigwR9A5pU9oJ9hCiBzn/";
+  return (
+    <div className={styles.similarProducts}>
+      <h2>Similar Products</h2>
+      <Image src={DotnetCourseHero} alt={''} />
+
+      <h3>Dotnet Architecture</h3>
+      <p>9h 55 min duration</p>
+      <p>19.99$</p>
+
+      <a target="_blank" href={dotnetCourseUrl}>Visit</a>
+    </div >
+  )
+}
+
+const Footer = ({ refScroll }) => {
 
   const openInNewTab = (url: string | URL) => {
     window.open(url, '_blank', 'noreferrer');
   };
-
 
   return (
     <div ref={refScroll} className={styles.footer}>
       <div className={styles.footerContent}>
         <h2>9h 55 min duration</h2>
         <h3>19,99 $</h3>
-        <Button onClick={() => openInNewTab(courseUrl)} text={"Buy now!"} /><br />
+        <Button onClick={() => openInNewTab(udemyUrl)} text={"Buy now!"} /><br />
         <p>or <a href="mailto:piotrzak77@gmail.com">convince me</a> to get course free</p>
         <p className={styles.footerRights}>© All right reserved. 2023</p>
       </div>

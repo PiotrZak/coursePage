@@ -6,7 +6,14 @@ import Logo from './image/logo.svg'
 import styles from './page.module.scss'
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic'
+import KubernetesCourseHero from '../../public/images/SimilarProducts/1.jpg';
+import { SimilarProducts } from './DesignSystem/SimilarProducts';
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
+const udemyUrl = "https://www.udemy.com/share/108lMy3@m_Q2hNMmQP-4qugU0CGK6ziiQzostr2utUh2vZ9ip4kSIigwR9A5pU9oJ9hCiBzn/";;
+const youtubeUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
+const KubernetesCourseUrl = "https://course-page-1u5i.vercel.app/";
+
 
 export default function Home() {
 
@@ -36,6 +43,19 @@ export default function Home() {
         <Hero executeScroll={executeScroll} isMobile={isMobile} />
         <List />
         <Video isMobile={isMobile} />
+        <SimilarProducts
+          header={'Similar Products'}
+          products={[
+            // upload correct product parameter, when already published and advertised
+            {
+              title: 'Learn Kubernetes Basics',
+              duration: '2 hours',
+              imageUrl: KubernetesCourseHero,
+              price: 'Free',
+              link: KubernetesCourseUrl
+            },
+          ]}
+        />
         <Footer refScroll={myRef} />
       </div>
     </main>
@@ -105,11 +125,9 @@ const List = () => {
 
 const Video = ({ isMobile }) => {
 
-  const videoUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
-
   return (
     <div className={styles.video}>
-      <ReactPlayer width={isMobile ? '100%' : '640px'} url={videoUrl} config={{
+      <ReactPlayer width={isMobile ? '100%' : '640px'} url={youtubeUrl} config={{
         youtube: {
           playerVars: { showinfo: 0 }
         }
@@ -121,8 +139,6 @@ const Video = ({ isMobile }) => {
 
 const Footer = ({ refScroll }) => {
 
-  const courseUrl = "https://www.udemy.com/share/108lMy3@m_Q2hNMmQP-4qugU0CGK6ziiQzostr2utUh2vZ9ip4kSIigwR9A5pU9oJ9hCiBzn/";
-
   const openInNewTab = (url: string | URL) => {
     window.open(url, '_blank', 'noreferrer');
   };
@@ -133,7 +149,7 @@ const Footer = ({ refScroll }) => {
       <div className={styles.footerContent}>
         <h2>9h 55 min duration</h2>
         <h3>19,99 $</h3>
-        <Button onClick={() => openInNewTab(courseUrl)} text={"Buy now!"} /><br />
+        <Button onClick={() => openInNewTab(udemyUrl)} text={"Buy now!"} /><br />
         <p>or <a href="mailto:piotrzak77@gmail.com">convince me</a> to get course free</p>
         <p className={styles.footerRights}>© All right reserved. 2023</p>
       </div>
