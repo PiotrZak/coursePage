@@ -1,6 +1,7 @@
 Repository for promoting educational products hosted on udemy platform.
 
-<img width="324" alt="Screenshot 2023-06-02 at 21 59 41" src="https://github.com/PiotrZak/coursePage/assets/37672365/76056b3f-9219-4348-8413-70d572626def">
+
+![Screenshot](CourseDesign.png)
 
 <b>Technologies:</b> Nest.js, Vercel, React, Dalle3, ChatGPT.
 
