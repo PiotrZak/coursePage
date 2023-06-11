@@ -49,9 +49,9 @@ export default function Home() {
             // upload correct product parameter, when already published and advertised
             {
               title: 'Learn Kubernetes Basics',
-              duration: '2 hours',
+              duration: '3 h 15 min',
               imageUrl: KubernetesCourseHero,
-              price: 'Free',
+              price: '19.99$',
               link: KubernetesCourseUrl
             },
           ]}

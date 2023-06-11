@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic'
 
 
 const udemyUrl = "https://www.udemy.com/course/kubernetes-quest/?referralCode=8A5E4E3F8B2B2B2B2B2B";
-const youtubeUrl = "https://www.youtube.com/watch?v=v5Z6Kft9doA&feature=youtu.be";
+const youtubeUrl = "https://www.youtube.com/watch?v=sqXFt8nIJ4A";
 const dotnetCourseUrl = "https://course-page-mu.vercel.app/";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
@@ -147,7 +147,7 @@ const Footer = ({ refScroll }) => {
   return (
     <div ref={refScroll} className={styles.footer}>
       <div className={styles.footerContent}>
-        <h2>9h 55 min duration</h2>
+        <h2>3h 15 min duration</h2>
         <h3>19,99 $</h3>
         <Button onClick={() => openInNewTab(udemyUrl)} text={"Buy now!"} /><br />
         <p>or <a href="mailto:piotrzak77@gmail.com">convince me</a> to get course free</p>
