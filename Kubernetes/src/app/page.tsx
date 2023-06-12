@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic'
 
 
-const udemyUrl = "https://www.udemy.com/course/kubernetes-quest/?referralCode=8A5E4E3F8B2B2B2B2B2B";
+const udemyUrl = "https://www.udemy.com/course/kubernetes-quest-next-level-ml-engineering";
 const youtubeUrl = "https://www.youtube.com/watch?v=sqXFt8nIJ4A";
 const dotnetCourseUrl = "https://course-page-mu.vercel.app/";
 
